@@ -4,50 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>El Tonaso de Amadín</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: #111;
+      background-color: #000;
+      background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
       color: #fff;
+      font-family: 'Share Tech Mono', monospace;
       text-align: center;
       padding: 50px;
     }
+
     h1 {
-      font-size: 2em;
-      margin-bottom: 30px;
-      animation: pulse 2s infinite;
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2.5em;
+      margin: 20px 0;
+      color: #ff003c;
+      text-shadow:
+        0 0 5px #ff003c,
+        0 0 10px #ff003c,
+        0 0 20px #ff1a53,
+        0 0 40px #ff003c;
+      animation: parpadeo 3s infinite alternate;
     }
+
+    @keyframes parpadeo {
+      0% { opacity: 1; text-shadow: 0 0 2px #ff003c; }
+      100% { opacity: 0.85; text-shadow: 0 0 40px #ff1a53; }
+    }
+
     #countdown {
       font-size: 3em;
-      letter-spacing: 2px;
-      color: #00ff88;
+      margin-top: 50px;
+      color: #00fff0;
+      text-shadow:
+        0 0 5px #00fff0,
+        0 0 15px #00fff0,
+        0 0 25px #00ced1;
+      border: 2px solid #00fff0;
+      padding: 15px 25px;
+      display: inline-block;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
     }
-    @keyframes pulse {
-      0% { color: #fff; }
-      50% { color: #00ff88; }
-      100% { color: #fff; }
+
+    ::selection {
+      background: #ff003c;
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <h1>Tonaso de amadin sin el cagón de dieguito 🎉</h1>
-  <h1>Con full tragos decentes y chelas artesanales</h1>
-  <h1>Rock, darkwave, electrodark, kpop, hight energy y mucho mas</h1>
+  <h1>🔥 Reunión secreta en el Depa de Amadín 🔥</h1>
+  <h1>Sin el cagón de Dieguito, obvio 🕯️</h1>
+  <h1>Tragos oscuros, chelas artesanales, música para almas sin luz</h1>
+  <h1>Rock, darkwave, synth, kpop, high energy y locura controlada</h1>
+  <h1>🦇 ¡No faltes! Lleva tu espíritu oscuro y tus mejores pasos 🕺🏻</h1>
   <div id="countdown">Cargando...</div>
 
   <script>
-    // 🗓️ Configura la fecha del tonaso aquí (año, mes-1, día, hora, minuto)
-    const evento = new Date(2025, 5, 6, 21, 0, 0); // 20 julio 2025 a las 10:00 pm
+    const evento = new Date(2025, 5, 6, 21, 0, 0); // 6 junio 2025, 9pm
 
     function actualizarCuentaRegresiva() {
       const ahora = new Date().getTime();
       const distancia = evento - ahora;
 
       if (distancia <= 0) {
-        document.getElementById("countdown").innerHTML = "¡Ya empezó el tonaso! 🍻🎊";
+        document.getElementById("countdown").innerHTML = "¡Ahora sí, a rajar de Dieguito! 🍷🔥";
         clearInterval(intervalo);
         return;
       }
+
 
       const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
