@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Tonaso de Amadín</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+    }
+    #countdown {
+      font-size: 3em;
+      letter-spacing: 2px;
+      color: #00ff88;
+    }
+    @keyframes pulse {
+      0% { color: #fff; }
+      50% { color: #00ff88; }
+      100% { color: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tonaso de amadin sin el cagón de dieguito 🎉</h1>
+  <h1>Con full decentes y chelas artesanales 🎉</h1>
+  <div id="countdown">Cargando...</div>
+
+  <script>
+    // 🗓️ Configura la fecha del tonaso aquí (año, mes-1, día, hora, minuto)
+    const evento = new Date(2025, 5, 6, 21, 0, 0); // 20 julio 2025 a las 10:00 pm
+
+    function actualizarCuentaRegresiva() {
+      const ahora = new Date().getTime();
+      const distancia = evento - ahora;
+
+      if (distancia <= 0) {
+        document.getElementById("countdown").innerHTML = "¡Ya empezó el tonaso! 🍻🎊";
+        clearInterval(intervalo);
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
+    actualizarCuentaRegresiva();
+  </script>
+</body>
+</html>
